@@ -1,0 +1,162 @@
+.about {
+  min-height: calc(100vh - 80px);
+  background: #0a0a0a;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.band-photo-section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.band-group-photo {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+}
+
+.band-story {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.band-story h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.band-story p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.members-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.members-section .section-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.member-item {
+  display: flex;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.member-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px var(--primary-glow-dark);
+}
+
+.member-photo {
+  flex-shrink: 0;
+}
+
+.member-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 4px 15px var(--primary-glow-dark);
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-name {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.member-role {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.member-bio {
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .band-group-photo {
+    height: 300px;
+  }
+
+  .band-story {
+    padding: 25px;
+  }
+
+  .band-story h2 {
+    font-size: 2rem;
+  }
+
+  .band-story p {
+    font-size: 1rem;
+  }
+
+  .members-section h2 {
+    font-size: 2rem;
+  }
+
+  .member-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .member-photo img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .member-name {
+    font-size: 1.5rem;
+  }
+
+  .member-bio {
+    font-size: 1rem;
+  }
+}

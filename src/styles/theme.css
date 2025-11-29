@@ -1,0 +1,22 @@
+:root {
+  /* Primary theme colors */
+  --primary-color: #e72b2b;
+  --primary-color-rgb: 231, 43, 43; /* RGB values of primary color */
+  --primary-glow-dark: rgba(var(--primary-color-rgb), 0.4);
+  --primary-glow-medium: rgba(var(--primary-color-rgb), 0.6);
+  --primary-glow-light: rgba(var(--primary-color-rgb), 0.8);
+  --primary-glow-bright: rgba(var(--primary-color-rgb), 1);
+  
+  /* Background colors */
+  --bg-dark: #0a0a0a;
+  --bg-medium: #1a1a1a;
+  --bg-black: #000000;
+  
+  /* Text colors */
+  --text-primary: #fff;
+  --text-secondary: #ccc;
+  
+  /* Shadow colors */
+  --shadow-dark: rgba(0, 0, 0, 0.9);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+}

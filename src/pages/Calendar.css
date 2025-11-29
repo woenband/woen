@@ -1,0 +1,192 @@
+.calendar {
+  min-height: calc(100vh - 80px);
+  background: #0a0a0a;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.concerts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.concerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Spacing between grouped sections */
+.section-spacer {
+  height: 30px;
+}
+.spacer-after-today {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.spacer-before-past {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.no-upcoming {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+  color: var(--primary-color);
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Optional subtle distinction per group if needed later */
+/* group hooks reserved for future tweaks */
+
+.concert-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.concert-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px var(--primary-glow-dark);
+}
+
+/* Past events - grayed out and slightly transparent */
+.concert-card.concert-past {
+  opacity: 0.5;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.concert-card.concert-past .concert-date {
+  background: linear-gradient(135deg, #666 0%, #444 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.concert-card.concert-past .event-name {
+  color: #999;
+}
+
+.concert-card.concert-past:hover {
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Today's event - subtle emphasis within existing red theme */
+.concert-card.concert-today {
+  background: var(--primary-glow-dark);
+  border: 1px solid var(--primary-glow-dark);
+  box-shadow: 0 0 18px var(--primary-glow-dark);
+}
+
+.concert-card.concert-today .concert-date {
+  background: linear-gradient(135deg, #ff1a1a 0%, var(--primary-color) 100%);
+  box-shadow: 0 4px 14px var(--primary-glow-dark);
+}
+
+.concert-card.concert-today .event-name {
+  color: #ff3333;
+}
+
+.concert-card.concert-today:hover {
+  box-shadow: 0 5px 24px var(--primary-glow-dark);
+}
+
+.concert-date {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 100%);
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 90px;
+  box-shadow: 0 4px 10px var(--primary-glow-dark);
+}
+
+.date-day {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin: 5px 0;
+}
+
+.date-year {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.concert-details {
+  flex: 1;
+}
+
+.event-name {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.event-name:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--primary-glow-light);
+}
+
+.concert-venue {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.concert-info {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.info-item svg {
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 768px) {
+  .concert-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .concert-date {
+    align-self: center;
+  }
+
+  .event-name {
+    font-size: 1.5rem;
+  }
+
+  .concert-venue {
+    font-size: 1.3rem;
+  }
+}
