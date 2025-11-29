@@ -1,3 +1,4 @@
+import { getAssetPath } from '../utils/paths';
 import './About.css';
 
 const About = () => {
@@ -6,31 +7,31 @@ const About = () => {
       name: 'Jeroen',
       role: 'Keys',
       bio: 'Apart from testing what each button on his keyboard does, Jeroen is also the bandleader.',
-      image: '/images/about/jeroen.jpg'
+      image: getAssetPath('/images/about/jeroen.jpg')
     },
     {
       name: 'Pim',
       role: 'Vocals',
       bio: 'Pim is zo\'n gozer.',
-      image: '/images/about/pim.jpg'
+      image: getAssetPath('/images/about/pim.jpg')
     },
     {
       name: 'Hugo',
       role: 'Drums',
       bio: 'Hugo is zo\'n kerel.',
-      image: '/images/about/hugo.jpg'
+      image: getAssetPath('/images/about/hugo.jpg')
     },
     {
       name: 'Marco',
       role: 'Guitar',
       bio: 'Marco is zo\'n gastje.',
-      image: '/images/about/marco.jpg'
+      image: getAssetPath('/images/about/marco.jpg')
     },
     {
       name: 'Maurits',
       role: 'Bass',
       bio: 'When he was very young, Maurits had a go at acoustic guitar, but it wasn\'t until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. Influenced by a variety of hard rock and metal bands, Maurits developed a love for deep and powerful bass lines that add a rich layer to Wōen\'s sound. He also writes most of the lyrics for the band, drawing inspiration from cosmic and gothic horror, as well as from the rich lore in the Soulsborne games.',
-      image: '/images/about/maurits.jpg'
+      image: getAssetPath('/images/about/maurits.jpg')
     }
   ];
 
@@ -38,7 +39,7 @@ const About = () => {
     <div className="about">
       <div className="band-photo-section">
         <img 
-          src="/images/about/band.jpg" 
+          src={getAssetPath('/images/about/band.jpg')}
           alt="Band group photo" 
           className="band-group-photo"
         />

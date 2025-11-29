@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaPlay, FaTimes } from 'react-icons/fa';
+import { getAssetPath } from '../utils/paths';
 import './Media.css';
 
 const Media = () => {
@@ -8,22 +9,22 @@ const Media = () => {
 
   const photos = [
     {
-      url: '/images/media/woen.png',
+      url: getAssetPath('/images/media/woen.png'),
       caption: 'Wōen Birdie'
     },
     {
-      url: '/images/media/Thy True Name.webp',
+      url: getAssetPath('/images/media/Thy True Name.webp'),
       caption: 'Thy True Name'
     },
     {
-      url: '/images/media/Truth of Night.webp',
+      url: getAssetPath('/images/media/Truth of Night.webp'),
       caption: 'Truth of Night'
     },
   ];
 
   const videos = [
     {
-      thumbnail: '/images/media/woen.webp',
+      thumbnail: getAssetPath('/images/media/woen.webp'),
       title: 'Live at Guitart Apeldoorn 2025',
       duration: '16:56',
       videoUrl: 'https://www.youtube.com/embed/XAn401ICdU8'

@@ -1,6 +1,7 @@
 import { FaFacebook, FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import ParticleEffect from '../components/ParticleEffect';
+import { getAssetPath } from '../utils/paths';
 import './Home.css';
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     const img = new Image();
-    img.src = '/images/home/band.jpg';
+    img.src = getAssetPath('/images/home/band.jpg');
     
     const handleResize = () => {
       const viewportHeight = window.innerHeight - 80; // subtract navbar height
@@ -77,7 +78,7 @@ const Home = () => {
       <div className="hero-section">
         <div className="hero-image-container">
           <img 
-            src="/images/home/band.jpg" 
+            src={getAssetPath('/images/home/band.jpg')}
             alt="Band" 
             className="hero-img-vignette" 
             style={{ objectFit }}
