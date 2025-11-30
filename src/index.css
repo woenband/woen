@@ -21,6 +21,14 @@
 
 html {
   scrollbar-gutter: stable; /* Reserve space for scrollbar without forcing it to show */
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+/* Remove scrollbar gutter on mobile to avoid black stripe */
+@media (max-width: 1024px) {
+  html {
+    scrollbar-gutter: auto;
+  }
 }
 
 body {

@@ -7,9 +7,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className={`nav-logo ${location.pathname === '/' ? 'active' : ''}`}>
+        <a href="/woen/" className={`nav-logo ${location.pathname === '/' ? 'active' : ''}`}>
           Woen
-        </Link>
+        </a>
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>

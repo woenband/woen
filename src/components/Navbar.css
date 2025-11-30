@@ -142,6 +142,7 @@
 
   .nav-logo {
     font-size: 1.5rem;
+    letter-spacing: 2px;
   }
 
   .nav-menu {
@@ -152,6 +153,24 @@
   .nav-link {
     padding: 0 0.8rem;
     font-size: 0.9rem;
+  }
+}
+
+/* Even smaller screens */
+@media screen and (max-width: 480px) {
+  .nav-container {
+    padding: 0 10px;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-link {
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
   }
 }
 

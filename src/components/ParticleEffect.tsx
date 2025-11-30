@@ -18,12 +18,13 @@ interface ParticleEffectProps {
   horizontalShift?: number; // Shift in pixels (positive = right, negative = left)
 }
 
-const ParticleEffect = ({ mode = 'spiral', horizontalShift = -5 }: ParticleEffectProps) => {
+const ParticleEffect = ({ mode = 'spiral', horizontalShift = -7.5 }: ParticleEffectProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
   const letterORef = useRef<{ x: number; y: number } | null>(null);
   const particleTextureRef = useRef<HTMLCanvasElement | null>(null);
+  const scaleFactorRef = useRef<number>(1); // Scale factor based on letter O size
 
   // Apply horizontal shift CSS variable to the letter-o element
   useEffect(() => {
@@ -84,9 +85,17 @@ const ParticleEffect = ({ mode = 'spiral', horizontalShift = -5 }: ParticleEffec
         const scaleX = canvas.width / canvasRect.width;
         const scaleY = canvas.height / canvasRect.height;
         
-        // Letter-spacing adds space AFTER the letter
+        // Calculate scale factor based on letter O height (base: 160px for 10rem at 16px root)
+        // This makes particles scale proportionally with the font size
+        const baseLetterHeight = 160; // 10rem * 16px
+        const currentLetterHeight = letterRect.height;
+        scaleFactorRef.current = currentLetterHeight / baseLetterHeight;
+        
+        // Get computed letter-spacing from the element
+        const computedStyle = window.getComputedStyle(letterO);
+        const letterSpacing = parseFloat(computedStyle.letterSpacing) || 0;
+        
         // The visual glyph center is shifted left by half the letter-spacing
-        const letterSpacing = 10;
         const oCenterViewportX = letterRect.left + (letterRect.width - letterSpacing) / 2;
         const oCenterViewportY = letterRect.top + letterRect.height / 2;
         
@@ -94,8 +103,8 @@ const ParticleEffect = ({ mode = 'spiral', horizontalShift = -5 }: ParticleEffec
         const centerX = (oCenterViewportX - canvasRect.left) * scaleX;
         const centerY = (oCenterViewportY - canvasRect.top) * scaleY;
         
-        // Apply configurable horizontal shift
-        const shiftAmount = horizontalShift * scaleX;
+        // Apply configurable horizontal shift (also scale it)
+        const shiftAmount = horizontalShift * scaleX * scaleFactorRef.current;
         
         letterORef.current = { x: centerX + shiftAmount, y: centerY };
       }
@@ -128,10 +137,19 @@ const ParticleEffect = ({ mode = 'spiral', horizontalShift = -5 }: ParticleEffec
     let spawnInterval = 3; // Fast spawning for all modes
 
     const spawnParticle = (currentTime: number) => {
-      const distance = 100 + Math.random() * 100; // Reduced radius: 100-200 instead of 200-350
+      // Scale distances based on letter O size
+      const scaledMinDistance = 100 * scaleFactorRef.current;
+      const scaledMaxDistance = 200 * scaleFactorRef.current;
+      
+      // Further reduce particle distances on mobile/small screens
+      const isMobile = window.innerWidth < 768;
+      const mobileScale = isMobile ? 0.5 : 1;
+      
+      const distance = (scaledMinDistance + Math.random() * (scaledMaxDistance - scaledMinDistance)) * mobileScale;
+      
       // Size based on distance: farther particles are larger (1.5 to 2.5x)
       // Closer particles are smaller (0.5 to 1.5x)
-      const normalizedDistance = (distance - 100) / 100; // 0 to 1
+      const normalizedDistance = (distance - scaledMinDistance) / (scaledMaxDistance - scaledMinDistance); // 0 to 1
       const size = 0.5 + normalizedDistance * 2; // 0.5 at close, 2.5 at far
       
       const particle: Particle = {
@@ -212,8 +230,9 @@ const ParticleEffect = ({ mode = 'spiral', horizontalShift = -5 }: ParticleEffec
           // For other modes: start large (2) and shrink (0.15) as they move
           scale = 2 - progress * 1.85;
         }
+        // Apply scale factor based on letter O size
         const baseSize = particle.size !== undefined ? 20 * particle.size : 20;
-        const size = baseSize * scale;
+        const size = baseSize * scale * scaleFactorRef.current;
         let opacity = 0;
         if (progress < 0.1) {
           opacity = progress / 0.1;

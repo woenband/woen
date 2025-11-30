@@ -10,7 +10,11 @@ const Media = () => {
   const photos = [
     {
       url: getAssetPath('/images/media/woen.png'),
-      caption: 'Wōen Birdie'
+      caption: 'Wōen Raven (square)'
+    },
+    {
+      url: getAssetPath('/images/media/raven.png'),
+      caption: 'Wōen Raven (wide)'
     },
     {
       url: getAssetPath('/images/media/Thy True Name.webp'),
@@ -24,7 +28,7 @@ const Media = () => {
 
   const videos = [
     {
-      thumbnail: getAssetPath('/images/media/woen.webp'),
+      thumbnail: getAssetPath('/images/media/raven.png'),
       title: 'Live at Guitart Apeldoorn 2025',
       duration: '16:56',
       videoUrl: 'https://www.youtube.com/embed/XAn401ICdU8'

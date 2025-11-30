@@ -8,19 +8,26 @@ const Home = () => {
   const [objectFit, setObjectFit] = useState<'contain' | 'cover'>('cover');
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0, left: 0, top: 0 });
   const [particleMode, setParticleMode] = useState<'spiral' | 'pull' | 'push' | 'none'>('spiral');
-  const [showDot, setShowDot] = useState(true);
+  const [lastActiveMode, setLastActiveMode] = useState<'spiral' | 'pull' | 'push'>('spiral');
 
-  const toggleParticleMode = () => {
+  const cycleParticleMode = () => {
     setParticleMode(prev => {
-      if (prev === 'spiral') return 'pull';
-      if (prev === 'pull') return 'push';
-      if (prev === 'push') return 'none';
-      return 'spiral';
+      if (prev === 'none') return lastActiveMode;
+      let newMode: 'spiral' | 'pull' | 'push';
+      if (prev === 'spiral') newMode = 'pull';
+      else if (prev === 'pull') newMode = 'push';
+      else newMode = 'spiral';
+      setLastActiveMode(newMode);
+      return newMode;
     });
   };
 
-  const toggleDot = () => {
-    setShowDot(prev => !prev);
+  const toggleEffectOnOff = () => {
+    setParticleMode(prev => {
+      if (prev === 'none') return lastActiveMode;
+      setLastActiveMode(prev as 'spiral' | 'pull' | 'push');
+      return 'none';
+    });
   };
 
   useEffect(() => {
@@ -33,7 +40,10 @@ const Home = () => {
       const viewportAspectRatio = viewportWidth / viewportHeight;
       
       const updateObjectFit = (imageAspectRatio: number) => {
-        if (viewportAspectRatio > imageAspectRatio) {
+        // For mobile devices, always use contain to show full image
+        const isMobile = viewportWidth < 1024;
+        
+        if (isMobile || viewportAspectRatio > imageAspectRatio) {
           setObjectFit('contain');
           // Image is constrained by height
           const renderedWidth = viewportHeight * imageAspectRatio;
@@ -100,9 +110,9 @@ const Home = () => {
           <div className="band-logo">
             <ParticleEffect key={particleMode} mode={particleMode} />
             <h1 className="band-name">
-              W<span className={`letter-o ${!showDot ? 'no-dot' : ''}`}>o</span>en
+              <span className="regular-letters">W</span><span className={`letter-o ${particleMode === 'none' ? 'no-dot' : ''}`} onClick={cycleParticleMode}><span className="letter-o-text">o</span></span><span className="regular-letters">en</span>
             </h1>
-            <p className="band-tagline">Symphonic Gothic Metal</p>
+            <p className="band-tagline">Dark Metal</p>
           </div>
           <div className="social-icons">
             <a href="https://on.soundcloud.com/KAWungxPTRbfHHVYbT" target="_blank" rel="noopener noreferrer" className="social-icon">
@@ -121,17 +131,10 @@ const Home = () => {
         </div>
         <button 
           className="particle-mode-toggle"
-          onClick={toggleParticleMode}
-          title={`Current mode: ${particleMode}`}
+          onClick={toggleEffectOnOff}
+          title={`Effect: ${particleMode === 'none' ? 'off' : 'on'}`}
         >
-          {particleMode}
-        </button>
-        <button 
-          className="dot-toggle"
-          onClick={toggleDot}
-          title={`Dot: ${showDot ? 'on' : 'off'}`}
-        >
-          dot: {showDot ? 'on' : 'off'}
+          {particleMode === 'none' ? 'off' : 'on'}
         </button>
       </div>
     </div>

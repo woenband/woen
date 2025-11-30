@@ -3,8 +3,8 @@ import './News.css';
 const News = () => {
 const newsItems = [
     {
-        date: 'November 28, 2025',
-        title: 'Official Website Launch',
+        date: 'November 30, 2025',
+        title: 'Website Launch',
         content: 'We are proud to announce the launch of our official website. Stay updated with the latest news, upcoming concert dates, media releases, and exclusive content.'
     },
     {
