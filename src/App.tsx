@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/woen">
+    <Router basename="/woen/">
       <div className="App">
         <Navbar />
         <Routes>

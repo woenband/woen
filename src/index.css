@@ -20,7 +20,7 @@
 }
 
 html {
-  scrollbar-gutter: stable; /* Reserve space for scrollbar without forcing it to show */
+  scrollbar-gutter: stable both-edges; /* Reserve space for scrollbar on both sides for symmetry */
   overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 

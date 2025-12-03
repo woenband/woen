@@ -121,6 +121,14 @@
   font-size: 1.1rem;
 }
 
+.member-bio p {
+  margin-bottom: 15px;
+}
+
+.member-bio p:last-child {
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 768px) {
   .band-group-photo {
     max-height: 300px;

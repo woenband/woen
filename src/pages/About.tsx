@@ -4,33 +4,45 @@ import './About.css';
 const About = () => {
   const bandMembers = [
     {
-      name: 'Jeroen',
-      role: 'Keys',
-      bio: 'Aside from testing what each button on his keyboard does, Jeroen is also the bandleader.',
-      image: getAssetPath('/images/about/jeroen.jpg')
-    },
-    {
       name: 'Pim',
       role: 'Vocals',
-      bio: 'Pim is zo\'n gozer die nog geen bio heeft geschreven.',
+      bio: ``,
       image: getAssetPath('/images/about/pim.jpg')
-    },
-    {
-      name: 'Hugo',
-      role: 'Drums',
-      bio: 'Hugo is zo\'n kerel die nog geen bio heeft geschreven.',
-      image: getAssetPath('/images/about/hugo.jpg')
     },
     {
       name: 'Marco',
       role: 'Guitar',
-      bio: 'Marco is zo\'n ventje die nog geen bio heeft geschreven.',
+      bio: `Initially drawn to the bombastic symphonies and melancholic melodies of early 2000s black and death metal, Marco's musical horizons expanded through the progressive and somber compositions of bands like Opeth, Mourn in Silence, and Insomnium.
+
+      The aggressive and haunting sounds of Dimmu Borgir, Old Man's Child, In Flames, and Dark Tranquillity remain key inspirations and continue to form an essential part of his musical repertoire.
+
+      With Wōen, Marco aims to further develop as a musician, eager to explore new blends and styles by merging his own musical tastes with those of his bandmates.`,
       image: getAssetPath('/images/about/marco.jpg')
+    },
+    {
+      name: 'Hugo',
+      role: 'Drums',
+      bio: ``,
+      image: getAssetPath('/images/about/hugo.jpg')
+    },
+    {
+      name: 'Jeroen',
+      role: 'Keys',
+      bio: `Aside from testing what every button on his keyboard does, and sometimes getting confused when it doesn't do the same thing as last time, Jeroen also serves as the bandleader. After an early encounter with Vangelis's Conquest of Paradise, it took another decade before he returned to the piano and synthesizers.
+
+      Drawing heavily from film scores and everything metal with keyboards, he started jamming with Hugo whom he met at a martial-arts class when they were both high school freshmen.
+
+      His key influences in chronological order are: Vangelis, Black Sabbath, Pink Floyd, Children of Bodom, Symphony X, Anathema, Ayreon, Philip Glass.`,
+      image: getAssetPath('/images/about/jeroen.jpg')
     },
     {
       name: 'Maurits',
       role: 'Bass',
-      bio: 'When he was very young, Maurits had a go at acoustic guitar, but it wasn\'t until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. Influenced by a variety of hard rock and metal bands, especially Opeth, Katatonia, In Mourning, and Nailed to Obscurity, Maurits developed a love for deep and powerful bass lines that add a rich layer to Wōen\'s sound. He also writes most of the lyrics for the band, drawing inspiration from cosmic and gothic horror, as well as from the rich lore in the Soulsborne games.',
+      bio: `When he was very young, Maurits had a go at acoustic guitar, but it wasn't until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. 
+      
+      Influenced by a variety of hard rock and metal bands, especially Opeth, Katatonia, Black Sabbath, In Mourning, and Nailed to Obscurity, he developed a love for deep and powerful bass lines that add a rich layer to Wōen's sound. 
+      
+      Maurits also writes most of the lyrics for the band, drawing inspiration from cosmic and gothic horror, as well as from the rich lore in the Soulsborne games.`,
       image: getAssetPath('/images/about/maurits.jpg')
     }
   ];
@@ -70,7 +82,11 @@ const About = () => {
               <div className="member-info">
                 <h3 className="member-name">{member.name}</h3>
                 <p className="member-role">{member.role}</p>
-                <p className="member-bio">{member.bio}</p>
+                <div className="member-bio">
+                  {member.bio.split('\n').map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

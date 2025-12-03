@@ -97,6 +97,19 @@
   -webkit-text-stroke: 2px black;
 }
 
+/* Firefox-specific fix for regular letters to prevent red artifacts */
+@supports (-moz-appearance: none) {
+  .band-name .regular-letters {
+    /* Prevent gradient bleed-through in Firefox */
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    /* Force paint containment to prevent glow artifacts */
+    text-shadow: none;
+    paint-order: stroke fill;
+  }
+}
+
 /* Invisible placeholder for O to maintain layout */
 .band-name .letter-placeholder {
   color: transparent;
@@ -149,21 +162,29 @@
 
 /* Firefox-specific: add blur and stronger glow to simulate gradient fade */
 @supports (-moz-appearance: none) {
+  /* Remove parent gradient in Firefox to prevent artifacts */
+  .band-name {
+    background: none;
+  }
+  
+  .letter-o {
+    color: rgba(231, 43, 43, 0.5) !important;
+  }
+  
   /* Apply opacity/blur to inner text wrapper only */
   .letter-o-text {
     display: inline-block;
-    filter: blur(25px) !important;
-    opacity: 0.25 !important;
+    color: rgba(231, 43, 43, 0.6) !important;
+    -webkit-text-fill-color: rgba(231, 43, 43, 0.6) !important;
+    /* Reduced blur - scale with viewport: min 2px, preferred 0.6vw, max 6px */
+    filter: blur(clamp(2px, 0.6vw, 6px)) !important;
+    opacity: 0.6 !important;
     text-shadow: 
       0 0 2px rgba(231, 43, 43, 0.8),
       0 0 4px rgba(231, 43, 43, 0.7),
       0 0 6px rgba(231, 43, 43, 0.6),
       0 0 8px rgba(231, 43, 43, 0.5),
       0 0 12px rgba(231, 43, 43, 0.4) !important;
-  }
-  
-  .letter-o {
-    color: rgba(231, 43, 43, 0.5) !important;
   }
 }
 
@@ -173,7 +194,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translateX(var(--horizontal-shift, 0px));
+  /* Use margin-left with em units to shift left - scales with font size */
+  margin-left: -0.04em;
+  transform: translate(-50%, -50%);
   /* Scale dot with font size: 0.3em for 10rem = 30px, 0.3em for 5rem = 15px */
   width: 0.3em;
   height: 0.3em;

@@ -61,20 +61,20 @@ const Calendar = () => {
                 </div>
               )}
 
-              {upcoming.length > 0 && (
-                <div className={`section-spacer ${today.length ? 'spacer-after-today' : ''}`}></div>
+              {today.length > 0 && upcoming.length > 0 && (
+                <div className={`separator`}></div>
               )}
 
               {upcoming.length > 0 ? (
                 <div className="concerts-list concerts-upcoming">
                   {upcoming.map(renderCard)}
                 </div>
-              ) : (
+              ) : today.length === 0 && (
                 <div className="no-upcoming">No upcoming events as of now.</div>
               )}
 
               {past.length > 0 && (
-                <div className={`section-spacer ${upcoming.length || today.length ? 'spacer-before-past' : ''}`}></div>
+                <div className={`separator`}></div>
               )}
 
               {past.length > 0 && (

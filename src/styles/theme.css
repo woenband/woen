@@ -20,3 +20,12 @@
   --shadow-dark: rgba(0, 0, 0, 0.9);
   --shadow-medium: rgba(0, 0, 0, 0.5);
 }
+
+/* Reusable separator */
+.separator {
+  margin: 30px auto;
+  height: 2px;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 1px;
+}

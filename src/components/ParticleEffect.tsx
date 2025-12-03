@@ -15,10 +15,10 @@ type EffectMode = 'spiral' | 'pull' | 'push' | 'none';
 
 interface ParticleEffectProps {
   mode?: EffectMode;
-  horizontalShift?: number; // Shift in pixels (positive = right, negative = left)
+  horizontalShift?: number; // Shift in em units (positive = right, negative = left)
 }
 
-const ParticleEffect = ({ mode = 'spiral', horizontalShift = -7.5 }: ParticleEffectProps) => {
+const ParticleEffect = ({ mode = 'spiral', horizontalShift = -0.075 }: ParticleEffectProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
@@ -30,7 +30,7 @@ const ParticleEffect = ({ mode = 'spiral', horizontalShift = -7.5 }: ParticleEff
   useEffect(() => {
     const letterO = document.querySelector('.letter-o') as HTMLElement;
     if (letterO) {
-      letterO.style.setProperty('--horizontal-shift', `${horizontalShift}px`);
+      letterO.style.setProperty('--horizontal-shift', `${horizontalShift}em`);
     }
   }, [horizontalShift]);
 

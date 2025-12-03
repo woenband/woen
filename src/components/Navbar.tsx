@@ -7,9 +7,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <a href="/woen/" className={`nav-logo ${location.pathname === '/' ? 'active' : ''}`}>
+        <Link 
+          to="/" 
+          className={`nav-logo ${location.pathname === '/' ? 'active' : ''}`}
+        >
           Woen
-        </a>
+        </Link>
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>

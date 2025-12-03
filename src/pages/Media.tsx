@@ -106,18 +106,8 @@ const Media = () => {
   return (
     <div className="media">
       <div className="media-container">
-        <div className="photos-grid">
-          {photos.map((photo, index) => (
-            <div key={index} className="photo-card" onClick={() => setSelectedPhoto(photo.url)}>
-              <img src={photo.url} alt={photo.caption} />
-              <div className="photo-overlay">
-                <p>{photo.caption}</p>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        <div className="videos-grid videos-section">
+        <div className="videos-grid">
           {videos.map((video, index) => (
             <div key={index} className="video-card" onClick={() => setSelectedVideo(index)}>
               <div className="video-thumbnail">
@@ -129,6 +119,19 @@ const Media = () => {
               </div>
               <div className="video-info">
                 <h3>{video.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <hr className="separator" />
+
+        <div className="photos-grid">
+          {photos.map((photo, index) => (
+            <div key={index} className="photo-card" onClick={() => setSelectedPhoto(photo.url)}>
+              <img src={photo.url} alt={photo.caption} />
+              <div className="photo-overlay">
+                <p>{photo.caption}</p>
               </div>
             </div>
           ))}
