@@ -8,8 +8,6 @@ import './Home.css';
 
 const Home = () => {
   const { toggleEasterEgg, isEasterEggActive, isAprilFools } = useEasterEgg();
-  const [objectFit, setObjectFit] = useState<'contain' | 'cover'>('cover');
-  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0, left: 0, top: 0 });
   const [particleMode, setParticleMode] = useState<'spiral' | 'pull' | 'push' | 'none'>('spiral');
   const [lastActiveMode, setLastActiveMode] = useState<'spiral' | 'pull' | 'push'>('spiral');
 

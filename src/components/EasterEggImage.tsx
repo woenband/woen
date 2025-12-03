@@ -1,4 +1,4 @@
-import { ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import { useEasterEgg } from '../contexts/EasterEggContext';
 import { getAssetPath } from '../utils/paths';
 
