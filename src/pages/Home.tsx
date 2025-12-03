@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ParticleEffect from '../components/ParticleEffect';
 import EasterEggImage from '../components/EasterEggImage';
 import { useEasterEgg } from '../contexts/EasterEggContext';
@@ -30,59 +30,6 @@ const Home = () => {
       return 'none';
     });
   };
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = getAssetPath('/images/home/band.jpg');
-    
-    const handleResize = () => {
-      const viewportHeight = window.innerHeight - 80; // subtract navbar height
-      const viewportWidth = window.innerWidth;
-      const viewportAspectRatio = viewportWidth / viewportHeight;
-      
-      const updateObjectFit = (imageAspectRatio: number) => {
-        // For mobile devices, always use contain to show full image
-        const isMobile = viewportWidth < 1024;
-        
-        if (isMobile || viewportAspectRatio > imageAspectRatio) {
-          setObjectFit('contain');
-          // Image is constrained by height
-          const renderedWidth = viewportHeight * imageAspectRatio;
-          const renderedHeight = viewportHeight;
-          const left = (viewportWidth - renderedWidth) / 2;
-          setImageDimensions({ 
-            width: renderedWidth, 
-            height: renderedHeight, 
-            left: left, 
-            top: 0 
-          });
-        } else {
-          setObjectFit('cover');
-          // Image fills the container
-          setImageDimensions({ 
-            width: viewportWidth, 
-            height: viewportHeight, 
-            left: 0, 
-            top: 0 
-          });
-        }
-      };
-      
-      img.onload = () => {
-        const imageAspectRatio = img.naturalWidth / img.naturalHeight;
-        updateObjectFit(imageAspectRatio);
-      };
-      
-      if (img.complete) {
-        const imageAspectRatio = img.naturalWidth / img.naturalHeight;
-        updateObjectFit(imageAspectRatio);
-      }
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <div className="home">
