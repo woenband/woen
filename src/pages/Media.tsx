@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaPlay, FaTimes } from 'react-icons/fa';
 import { getAssetPath } from '../utils/paths';
+import EasterEggImage from '../components/EasterEggImage';
 import './Media.css';
 
 const Media = () => {
@@ -111,7 +112,7 @@ const Media = () => {
           {videos.map((video, index) => (
             <div key={index} className="video-card" onClick={() => setSelectedVideo(index)}>
               <div className="video-thumbnail">
-                <img src={video.thumbnail} alt={video.title} />
+                <EasterEggImage src={video.thumbnail} alt={video.title} />
                 <div className="video-play-overlay">
                   <FaPlay className="play-icon" />
                 </div>
@@ -129,7 +130,7 @@ const Media = () => {
         <div className="photos-grid">
           {photos.map((photo, index) => (
             <div key={index} className="photo-card" onClick={() => setSelectedPhoto(photo.url)}>
-              <img src={photo.url} alt={photo.caption} />
+              <EasterEggImage src={photo.url} alt={photo.caption} />
               <div className="photo-overlay">
                 <p>{photo.caption}</p>
               </div>
@@ -144,7 +145,7 @@ const Media = () => {
             <button className="modal-close" onClick={closeModal}>
               <FaTimes />
             </button>
-            <img src={selectedPhoto} alt="Enlarged view" />
+            <EasterEggImage src={selectedPhoto} alt="Enlarged view" />
           </div>
         </div>
       )}

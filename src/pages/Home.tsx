@@ -1,10 +1,13 @@
 import { FaFacebook, FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import ParticleEffect from '../components/ParticleEffect';
+import EasterEggImage from '../components/EasterEggImage';
+import { useEasterEgg } from '../contexts/EasterEggContext';
 import { getAssetPath } from '../utils/paths';
 import './Home.css';
 
 const Home = () => {
+  const { toggleEasterEgg, isEasterEggActive, isAprilFools } = useEasterEgg();
   const [objectFit, setObjectFit] = useState<'contain' | 'cover'>('cover');
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0, left: 0, top: 0 });
   const [particleMode, setParticleMode] = useState<'spiral' | 'pull' | 'push' | 'none'>('spiral');
@@ -86,26 +89,11 @@ const Home = () => {
   return (
     <div className="home">
       <div className="hero-section">
-        <div className="hero-image-container">
-          <img 
-            src={getAssetPath('/images/home/band.jpg')}
-            alt="Band" 
-            className="hero-img-vignette" 
-            style={{ objectFit }}
-          />
-          <div 
-            className="vignette-overlay"
-            style={{
-              position: 'absolute',
-              left: `${imageDimensions.left}px`,
-              top: `${imageDimensions.top}px`,
-              width: `${imageDimensions.width}px`,
-              height: `${imageDimensions.height}px`,
-              pointerEvents: 'none',
-              background: 'radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0,0,0,0.9) 100%)'
-            }}
-          />
-        </div>
+        <EasterEggImage 
+          src={getAssetPath('/images/home/band.jpg')}
+          alt="Band" 
+          className="hero-img-vignette"
+        />
         <div className="hero-content">
           <div className="band-logo">
             <ParticleEffect key={particleMode} mode={particleMode} />
@@ -134,7 +122,14 @@ const Home = () => {
           onClick={toggleEffectOnOff}
           title={`Effect: ${particleMode === 'none' ? 'off' : 'on'}`}
         >
-          {particleMode === 'none' ? 'off' : 'on'}
+          {particleMode === 'none' ? '👁' : '👁'}
+        </button>
+        <button 
+          className="easter-egg-toggle"
+          onClick={toggleEasterEgg}
+          title={`Easter egg: ${isEasterEggActive || isAprilFools ? 'on' : 'off'}`}
+        >
+          🦶
         </button>
       </div>
     </div>

@@ -52,6 +52,19 @@
   display: flex;
   align-items: center;
   height: 80px;
+  position: relative;
+}
+
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 47%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
 .nav-logo:hover {
@@ -62,6 +75,10 @@
     1px 1px 3px var(--shadow-dark);
 }
 
+.nav-logo:hover::after {
+  width: 100%;
+}
+
 /* Active logo state when on Home */
 .nav-logo.active {
   color: var(--primary-color);
@@ -70,6 +87,10 @@
     0 0 10px var(--primary-glow-medium),
     1px 1px 3px var(--shadow-dark);
   animation: none; /* Keep animation disabled on active state */
+}
+
+.nav-logo.active::after {
+  width: 100%;
 }
 
 .nav-menu {
@@ -114,7 +135,7 @@
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 20px;
+  top: 26px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -128,7 +149,7 @@
 }
 
 .nav-link:hover::after {
-  width: 70%;
+  width: calc(100% - 3rem);
 }
 
 .nav-link.active {
@@ -136,7 +157,7 @@
 }
 
 .nav-link.active::after {
-  width: 70%;
+  width: calc(100% - 3rem);
 }
 
 @media screen and (max-width: 768px) {

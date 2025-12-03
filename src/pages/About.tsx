@@ -1,4 +1,5 @@
 import { getAssetPath } from '../utils/paths';
+import EasterEggImage from '../components/EasterEggImage';
 import './About.css';
 
 const About = () => {
@@ -38,11 +39,11 @@ const About = () => {
     {
       name: 'Maurits',
       role: 'Bass',
-      bio: `When he was very young, Maurits had a go at acoustic guitar, but it wasn't until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. 
+      bio: `Around ten years old Maurits had a go at acoustic guitar, but it wasn't until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. 
       
-      Influenced by a variety of hard rock and metal bands, especially Opeth, Katatonia, Black Sabbath, In Mourning, and Nailed to Obscurity, he developed a love for deep and powerful bass lines that add a rich layer to Wōen's sound. 
+      Influenced by a variety of hard rock and metal bands, especially Opeth, Katatonia, Black Sabbath, In Mourning, and Nailed to Obscurity, he developed a love for deep and powerful bass lines. He aims to write compositions that add a rich bass layer to Wōen's sound. 
       
-      Maurits also writes most of the lyrics for the band, drawing inspiration from cosmic and gothic horror, as well as from the rich lore in the Soulsborne games.`,
+      Maurits also often writes the lyrics for the band, drawing inspiration from cosmic and gothic horror, as well as from the rich lore in the Soulsborne games.`,
       image: getAssetPath('/images/about/maurits.jpg')
     }
   ];
@@ -50,7 +51,7 @@ const About = () => {
   return (
     <div className="about">
       <div className="band-photo-section">
-        <img 
+        <EasterEggImage 
           src={getAssetPath('/images/about/band.jpg')}
           alt="Band group photo" 
           className="band-group-photo"
@@ -77,7 +78,7 @@ const About = () => {
           {bandMembers.map((member, index) => (
             <div key={index} className="member-item">
               <div className="member-photo">
-                <img src={member.image} alt={member.name} />
+                <EasterEggImage src={member.image} alt={member.name} />
               </div>
               <div className="member-info">
                 <h3 className="member-name">{member.name}</h3>
