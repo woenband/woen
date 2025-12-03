@@ -136,7 +136,7 @@
   content: '';
   position: absolute;
   top: 26px;
-  left: 50%;
+  left: 49%;
   transform: translateX(-50%);
   width: 0;
   height: 2px;
@@ -179,6 +179,11 @@
     padding: 0 0.8rem;
     font-size: 0.9rem;
   }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: calc(100% - 1.6rem);
+  }
 }
 
 /* Even smaller screens */
@@ -196,6 +201,11 @@
     padding: 0 0.5rem;
     font-size: 0.8rem;
     letter-spacing: 1px;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: calc(100% - 1rem);
   }
 }
 
