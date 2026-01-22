@@ -9,7 +9,7 @@ const About = () => {
       role: 'Vocals',
       bio: `Pim is the charismatic lead singer of Wōen, known for his rich, theatrical storytelling voice that brings every lyric to life. With a natural flair for atmosphere and emotion, he guides audiences through the band's dark, immersive soundscapes.
 
-      Before Wōen, Pim had already collaborated a decade ago with bandmates Jeroen and Hugo, forging a creative chemistry that now intertwines with the madness of Maurits and Marco as well, creating the core of the band's distinctive identity.`,
+      Before Wōen, Pim had already collaborated a decade ago with bandmates Jeroen and Hugo, forging a creative chemistry that now intertwines with the madness of Maurits and Marco, creating the core of the band's distinctive identity.`,
       image: getAssetPath('/images/about/pim.jpg')
     },
     {
@@ -25,25 +25,29 @@ const About = () => {
     {
       name: 'Hugo',
       role: 'Drums',
-      bio: ``,
+      bio: `Hugo loves coffee but only has one flavor: pitch black (like his soul). In fact, he's so addicted to coffee that he refuses to play the drums without getting a shot of dark roast first. Putting milk, cream, or other crap in coffee is heresy. Without his coffee, he displays withdrawal symptoms like drumming on tables, his legs, fellow bandmembers, or any object within arm's reach. 
+
+      Unlike his homogenous taste in coffee, Hugo's music taste is pretty diverse. From old school 60s/70s/80s music to the brutal onslaught of Marduk. From the happy party tunes of Electric Callboy to the melancholy of My Dying Bride. His musical journey takes strange turns and paths unwalked, but somehow always goes through Sweden to visit In Flames, Opeth, Dark Tranquility, and Evergrey, only to finish with the spacy tunes of some tall Dutch hippy guy hermit.
+      
+      Approach Hugo without an offering of coffee at your own peril.`,
       image: getAssetPath('/images/about/hugo.jpg')
     },
     {
       name: 'Jeroen',
       role: 'Keys',
-      bio: `Aside from testing what every button on his keyboard does, and sometimes getting confused when it doesn't do the same thing as last time, Jeroen also serves as the bandleader. After an early encounter with Vangelis's Conquest of Paradise, it took another decade before he returned to the piano and synthesizers.
+      bio: `Aside from testing what every button on his keyboard does—and sometimes getting confused when it doesn't do the same thing as last time—Jeroen also serves as the bandleader. After an early encounter with Vangelis's Conquest of Paradise, it took another decade before he returned to the piano and synthesizers.
 
-      Drawing heavily from film scores and everything metal with keyboards, he started jamming with Hugo whom he met at a martial-arts class when they were both high school freshmen.
+      Drawing heavily from film scores and metal with keyboards, he started jamming with Hugo, whom he met at a martial-arts class when they were both high school freshmen.
 
-      His key influences in chronological order are: Vangelis, Black Sabbath, Pink Floyd, Children of Bodom, Symphony X, Anathema, Ayreon, Philip Glass.`,
+      His key influences in chronological order are: Vangelis, Black Sabbath, Pink Floyd, Children of Bodom, Symphony X, Anathema, Ayreon, and Philip Glass.`,
       image: getAssetPath('/images/about/jeroen.jpg')
     },
     {
       name: 'Maurits',
       role: 'Bass',
-      bio: `Around ten years old Maurits had a go at acoustic guitar, but it wasn't until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. 
+      bio: `Around ten years old, Maurits had a go at acoustic guitar, but it wasn't until his thirties that he discovered the magic of the electric bass guitar and its deep, resonant tones. 
       
-      Influenced by a variety of hard rock and metal bands, especially Opeth, Katatonia, Black Sabbath, In Mourning, and Nailed to Obscurity, he developed a love for deep and powerful bass lines. He aims to write compositions that add a rich bass layer to Wōen's sound. 
+      Influenced by a variety of hard rock and metal bands—especially Opeth, Katatonia, Black Sabbath, In Mourning, and Nailed to Obscurity—he developed a love for deep and powerful bass lines. He aims to write compositions that add a rich bass layer to Wōen's sound. 
       
       Maurits also often writes the lyrics for the band, drawing inspiration from cosmic and gothic horror, as well as from the rich lore in the Soulsborne games.`,
       image: getAssetPath('/images/about/maurits.jpg')
