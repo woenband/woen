@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { useState } from 'react';
 import ParticleEffect from '../components/ParticleEffect';
 import EasterEggImage from '../components/EasterEggImage';
@@ -40,14 +40,14 @@ const Home = () => {
             <p className="band-tagline">Dark Metal</p>
           </div>
           <div className="social-icons">
-            <a href="https://on.soundcloud.com/KAWungxPTRbfHHVYbT" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FaSoundcloud />
+            <a href="https://www.youtube.com/@woenband" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaYoutube />
             </a>
             <a href="https://www.facebook.com/people/W%C3%B5en/61582557673110/" target="_blank" rel="noopener noreferrer" className="social-icon">
               <FaFacebook />
             </a>
-            <a href="mailto:woenbandnl@gmail.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FaEnvelope />
+            <a href="https://on.soundcloud.com/KAWungxPTRbfHHVYbT" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaSoundcloud />
             </a>
           </div>
         </div>

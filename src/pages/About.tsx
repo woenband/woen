@@ -75,6 +75,9 @@ const About = () => {
           <p>
             We are currently working to complete our debut album and preparing to bring our music to audiences through live performances.
           </p>
+          <p>
+            For bookings and inquiries, contact us at <a href="mailto:woenbandnl@gmail.com" className="contact-link">woenbandnl@gmail.com</a>.
+          </p>
         </div>
       </div>
 
