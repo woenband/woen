@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaPlay, FaTimes } from 'react-icons/fa';
-import { getAssetPath } from '../utils/paths';
 import EasterEggImage from '../components/EasterEggImage';
 import './Media.css';
 
@@ -8,32 +7,35 @@ const Media = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
 
-  const photos = [
-    {
-      url: getAssetPath('/images/media/woen.png'),
-      caption: 'Wōen Raven (square)'
-    },
-    {
-      url: getAssetPath('/images/media/raven.png'),
-      caption: 'Wōen Raven (wide)'
-    },
-    {
-      url: getAssetPath('/images/media/Thy True Name.webp'),
-      caption: 'Thy True Name'
-    },
-    {
-      url: getAssetPath('/images/media/Truth of Night.webp'),
-      caption: 'Truth of Night'
-    },
+  const photos: any[] = [
+    // {
+    //   url: getAssetPath('/images/media/pants.jpg'),
+    //   caption: 'Placeholder'
+    // }
   ];
 
   const videos = [
     {
-      thumbnail: getAssetPath('/images/media/raven.png'),
+      thumbnail: 'https://img.youtube.com/vi/XAn401ICdU8/maxresdefault.jpg',
       title: 'Live at Guitart Apeldoorn 2025',
       duration: '16:56',
       videoUrl: 'https://www.youtube.com/embed/XAn401ICdU8'
     },
+  ];
+
+  const audio = [
+    {
+      trackId: '2219364272',
+      title: 'Thy true name'
+    },
+    {
+      trackId: '2219364269',
+      title: 'Confined'
+    },
+    {
+      trackId: '2219364275',
+      title: 'Incarnate'
+    }
   ];
 
   const closeModal = () => {
@@ -108,6 +110,23 @@ const Media = () => {
     <div className="media">
       <div className="media-container">
 
+        <div className="audio-section">
+          {audio.map((track, index) => (
+            <div key={index} className="audio-player">
+              <iframe 
+                width="100%" 
+                height="300" 
+                scrolling="no" 
+                frameBorder="no" 
+                allow="autoplay" 
+                src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.trackId}&color=%23e72b2b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
+              ></iframe>
+            </div>
+          ))}
+        </div>
+
+        {audio.length > 0 && videos.length > 0 && <hr className="separator" />}
+
         <div className="videos-grid">
           {videos.map((video, index) => (
             <div key={index} className="video-card" onClick={() => setSelectedVideo(index)}>
@@ -125,7 +144,7 @@ const Media = () => {
           ))}
         </div>
 
-        <hr className="separator" />
+        {videos.length > 0 && photos.length > 0 && <hr className="separator" />}
 
         <div className="photos-grid">
           {photos.map((photo, index) => (

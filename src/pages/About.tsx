@@ -7,7 +7,9 @@ const About = () => {
     {
       name: 'Pim',
       role: 'Vocals',
-      bio: ``,
+      bio: `Pim is the charismatic lead singer of Wōen, known for his rich, theatrical storytelling voice that brings every lyric to life. With a natural flair for atmosphere and emotion, he guides audiences through the band's dark, immersive soundscapes.
+
+      Before Wōen, Pim had already collaborated a decade ago with bandmates Jeroen and Hugo, forging a creative chemistry that now intertwines with the madness of Maurits and Marco as well, creating the core of the band's distinctive identity.`,
       image: getAssetPath('/images/about/pim.jpg')
     },
     {

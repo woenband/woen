@@ -4,13 +4,27 @@ import './Calendar.css';
 const Calendar = () => {
   const concerts = [
     {
+      date: '2026-02-07',
+      time: '20:00',
+      eventName: 'Metal Battle Gelderland',
+      venue: 'Estrado',
+      city: 'Harderwijk',
+      country: 'Netherlands',
+      eventLinks: [
+        { title: 'Metal Battle', url: 'https://www.metalbattle.nl/battles' },
+        { title: 'Estrado Harderwijk', url: 'https://estrado.nl/productie/metal-battle-voorronde' }
+      ]
+    },
+    {
       date: '2025-06-07',
       time: '15:00',
       eventName: 'Guitart — Open Dag',
       venue: 'Guitart',
       city: 'Apeldoorn',
       country: 'Netherlands',
-      eventLink: 'https://guitart-music.nl/'
+      eventLinks: [
+        { title: 'Guitart', url: 'https://guitart-music.nl' }
+      ]
     }
   ];
 
@@ -43,12 +57,21 @@ const Calendar = () => {
                 <div className="date-year">{new Date(concert.date).getFullYear()}</div>
               </div>
               <div className="concert-details">
-                <a href={concert.eventLink} target="_blank" rel="noopener noreferrer" className="event-name">{concert.eventName}</a>
+                <h2 className="event-name">{concert.eventName}</h2>
                 <h3 className="concert-venue">{concert.venue}</h3>
                 <div className="concert-info">
                   <div className="info-item"><FaMapMarkerAlt /><span>{concert.city}, {concert.country}</span></div>
                   <div className="info-item"><FaClock /><span>{concert.time}</span></div>
                 </div>
+                {concert.eventLinks && concert.eventLinks.length > 0 && (
+                  <div className="event-links">
+                    {concert.eventLinks.map((link, linkIdx) => (
+                      <a key={linkIdx} href={link.url} target="_blank" rel="noopener noreferrer" className="event-link">
+                        {link.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           );

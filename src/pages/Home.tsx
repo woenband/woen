@@ -23,14 +23,6 @@ const Home = () => {
     });
   };
 
-  const toggleEffectOnOff = () => {
-    setParticleMode(prev => {
-      if (prev === 'none') return lastActiveMode;
-      setLastActiveMode(prev as 'spiral' | 'pull' | 'push');
-      return 'none';
-    });
-  };
-
   return (
     <div className="home">
       <div className="hero-section">
@@ -62,13 +54,6 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <button 
-          className="particle-mode-toggle"
-          onClick={toggleEffectOnOff}
-          title={`Effect: ${particleMode === 'none' ? 'off' : 'on'}`}
-        >
-          {particleMode === 'none' ? '👁' : '👁'}
-        </button>
         <button 
           className="easter-egg-toggle"
           onClick={toggleEasterEgg}

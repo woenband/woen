@@ -10,8 +10,8 @@ interface EasterEggImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 const EasterEggImage = ({ src, alt, ...props }: EasterEggImageProps) => {
   const { isEasterEggActive, isAprilFools } = useEasterEgg();
   
-  const shouldShowFeet = isEasterEggActive || isAprilFools;
-  const imageSrc = shouldShowFeet ? getAssetPath('/images/media/feet.jpg') : src;
+  const shouldShowPants = isEasterEggActive || isAprilFools;
+  const imageSrc = shouldShowPants ? getAssetPath('/images/media/pants.jpg') : src;
 
   return <img src={imageSrc} alt={alt} {...props} />;
 };
