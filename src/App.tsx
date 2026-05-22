@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <EasterEggProvider>
-      <Router basename="/woen/">
+      <Router>
         <div className="App">
           <Navbar />
           <Routes>
