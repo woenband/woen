@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://woenband.github.io/woen",
+  "homepage": "https://woen.band",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
